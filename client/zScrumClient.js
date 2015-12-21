@@ -11,23 +11,12 @@ var populated = true;
 
 if(!populated){
 
-//var story = {};
-//
-//story.text = "Design a better Scrum Board";
-//story.person =
-
     Stories.insert({
         _id: "1",
         text: "Design a better Scrum Board",
         person: "Zachary Wolf"
     });
 
-
-
-
-//story.text = "Finish Flash Development";
-//story.person =  "Ben Vanassee";
-//Stories.insert(story);
 
     Stories.insert({
         _id: "2",
@@ -37,23 +26,12 @@ if(!populated){
 
 
 
-//
-//story.text = "Design the Crude Wireframes for CEG";
-//story.person =  "Zack Thomlinson";
-//Stories.insert(story);
-
     Stories.insert({
         _id: "3",
         text: "Design the Crude Wireframes for CEG",
         person: "Zack Thomlinson"
     });
 
-
-//var aTask = {};
-//
-//aTask.text = "Learn Proper CSS layout schemes";
-//aTask.person = "Zachary Wolf";
-//Tasks.insert(aTask);
 
     Tasks.insert({
         storyID: "1",
@@ -64,11 +42,6 @@ if(!populated){
 
 
 
-//
-//aTask.text = "Include Bootstrap into the styling";
-//aTask.person = "Zachary Wolf";
-//Tasks.insert(aTask);
-
     Tasks.insert({
         storyID: "1",
         desc: "Include Bootstrap into the styling",
@@ -76,11 +49,6 @@ if(!populated){
         status: "wip"
     });
 
-
-//
-//aTask.text = "Add JS Functionality";
-//aTask.person = "Zachary Wolf";
-//Tasks.insert(aTask);
 
     Tasks.insert({
         storyID: "2",
@@ -92,10 +60,6 @@ if(!populated){
 
 
 
-//aTask.text = "Revisit and finalize styling";
-//aTask.person = "Zachary Wolf";
-//Tasks.insert(aTask);
-
     Tasks.insert({
         storyID: "2",
         desc: "Revisit and finalize styling",
@@ -105,10 +69,6 @@ if(!populated){
 
 
 
-
-//aTask.text = "Include recommendations from Ben, Tony, Zack, etc into functionality";
-//aTask.person = "Zachary Wolf";
-//Tasks.insert(aTask);
 
     Tasks.insert({
         storyID: "3",
@@ -174,24 +134,6 @@ Template.doneList.helpers({
     }
 
 });
-
-//Template.doneList.helpers({
-//    tasks: function(){
-//        return Tasks.find({story_id: parent._id, status:"done"})
-//    }
-//
-//});
-
-
-
-/*Task Arrows Movement
-===================================
- */
-//Template.task.helpers({
-//    tasks: function(){
-//        return Tasks.find({storyID: this._id})
-//    }
-//})
 
 Template.task.events({
 
@@ -306,15 +248,8 @@ Template.story.events({
                         aStory.desc = $('input[name="createTaskDesc"]','.bootbox').val();
                         aStory.assignee = $('input[name="createTaskAssignee"]','.bootbox').val();
                         aStory.status = "todo";
-                        //aStory.desc = $("input[name ='createTaskDesc']").val();
-                        //aStory.assignee = $("input[name ='createTaskAssignee']").val();
                         Tasks.insert(aStory);
                         sessionStorage.setItem('aStory', aStory);
-                        //Session.set(status, "
-                        //Session.set('status', ";
-                        //Session.set('storyID', aStory.storyID)
-                        //Session.set.desc = $("input[name ='createTaskDesc']").val();
-                        //Session.set.assignee = $("input[name ='createTaskAssignee']").val();
                     }
                         }
                     }
@@ -326,23 +261,8 @@ Template.story.events({
         }
 
         aStory.status = "";
-        //var newStory = {};
-        //newStory = Session.get('aStory');
-        //lastID = newStory._id;
                 }
             });
-
-
-    //"click .taskAdded": function(){
-    //    Tasks.insert({
-    //        storyID: this._id,
-    //        status: "",
-    //        desc: $("input[name ='createTaskDesc']").val(),
-    //        assignee: $("input[name ='createTaskAssignee']").val()
-    //
-    //    })
-    //}
-
 
 
 
@@ -359,12 +279,6 @@ Template.createStory.events({
         Stories.insert(story);
     }
 });
-
-
-
-
-
-
 
 
 

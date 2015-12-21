@@ -101,11 +101,6 @@ th{
 
 
 
-
-
-
-
-
 /*bootstrap override*/
 
 .table-striped>tbody>tr:nth-child(odd)>td,
@@ -128,11 +123,6 @@ th{
 }
 
 
-
-
-
-
-
 /*  Task Format
 =============================*/
 
@@ -143,19 +133,6 @@ th{
     background-color: lightyellow;
 
 }
-
-.aTask{
-
-}
-
-
-
-
-
-
-
-
-
 
 /*=======================*/
 

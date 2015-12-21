@@ -1,0 +1,233 @@
+
+<!-- simple-todos.html -->
+
+
+<head>
+    <link href="images/font-awesome.css" rel="stylesheet">
+    <title>
+        zScrum
+    </title>
+
+</head>
+
+<body>
+
+<div class="container">
+    <header>
+        <h1 style="text-align: center; color: white">Scrum Board</h1>
+        {{>createStory}}
+
+
+
+
+    </header>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+
+            <tr class="row">
+                <th id="story-header"><span>Stories</span></th>
+                <th id="todo-header"><span>To Do</span></th>
+                <th id="inprogress-header"><span>In Progress</span></th>
+                <th id="testing-header"><span>Verify</span></th>
+                <th id="done-header"><span>Done</span></th>
+            </tr>
+            </thead>
+            <tbody class="content">
+                {{>stories_list}}
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <ul>
+
+    </ul>
+</div>
+</body>
+
+<template name = "main">
+    {{>stories_list}}
+
+
+
+
+</template>
+
+<template name="createStory">
+    <form>
+        <div class="formDiv">
+            <div class="form-group">
+                <h3 class = "inline-block cWhite">Create new story: </h3>
+                <input type ="text" name = "createStoryText" class = "">
+            </div>
+
+            <div class="form-group">
+                <h3 class = "createHeader cWhite">Assignee: </h3>
+                <input type ="text" name = "createStoryPerson" class = "createStoryText">
+
+            </div>
+            <button class = "aButton hc btn btn-default">Submit</button>
+
+        </div>
+
+
+
+        <!--<div class="formDiv form-group">-->
+            <!--<div class="formInnerDiv">-->
+                <!--<div>-->
+                    <!--<h3 class = "createHeader">Create new story: </h3>-->
+                    <!--<input type ="text" name = "createStoryText" class = "createStoryText">-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<h3 class="createHeader">Assign to:</h3> <input type="text" name="createStoryPerson" class="createP">-->
+                <!--</div>-->
+
+            <!--</div>-->
+            <!--<button class = "createS btn btn-default">Submit</button>-->
+
+
+        <!--</div>-->
+
+    </form>
+
+</template>
+
+<template name="task">
+    <td>
+        <div class = 'thumbnail aTaskContainer '>
+            <div class='aTask'>
+                <span class="tDelete glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                <div class='textspot'> {{desc}} </div>
+
+                <div class ='personCon hc'>
+                    <span class="moveLeft glyphicon glyphicon-arrow-left fl" aria-hidden="true"></span>
+                    <span style="color: #428bca">{{assignee}}</span>
+                    <span class="moveRight glyphicon glyphicon-arrow-right fr" aria-hidden="true"></span>
+                </div>
+            </div>
+        </div>
+    </td>
+</template>
+
+<template name="story">
+    <tr class="content row" id="{{_id}}">
+        <td class = "tdStory">
+            <div class="tdStoryInner">
+                <span class="sDelete gDelete glyphicon glyphicon-remove-circle" aria-hidden="true">
+
+                </span>
+
+                <h3 class="storyText"> {{text}}</h3><br>
+
+                <div class="   thumbnail clearfix personTile">
+                    <div>
+                        <h1 class="inline fl v1">{{person}}</h1>
+                    </div>
+
+                    <div>
+                        <button class="addTask fr"><span class="gDelete glyphicon glyphicon-plus" aria-hidden="true"></span></button></div>
+                    </div>
+
+            </div>
+        </td>
+
+        <td>
+            {{> todosList}}
+        </td>
+        <td>
+            {{> inProgressList}}
+        </td>
+        <td>
+            {{> verifyList}}
+        </td>
+        <td>
+            {{> doneList}}
+        </td>
+
+
+    </tr>
+
+</template>
+
+<template name="createTask">
+
+
+</template>
+
+
+
+<template name="stories_list">
+    {{#each stories}}
+        {{> story}}
+    {{/each}}
+</template>
+
+
+
+
+<template name="todosList">
+    <table>
+        {{#each tasks}}
+            <tr>
+                {{>task}}
+            </tr>
+        {{/each}}
+    </table>
+
+
+</template>
+
+
+<template name="inProgressList">
+    <table>
+        {{#each tasks}}
+            <tr>
+                {{>task}}
+            </tr>
+        {{/each}}
+    </table>
+</template>
+
+<template name="verifyList">
+    <table>
+        {{#each tasks}}
+            <tr>
+                {{>task}}
+            </tr>
+        {{/each}}
+    </table>
+</template>
+
+<template name="doneList">
+    <table>
+        {{#each tasks}}
+            <tr>
+                {{>task}}
+            </tr>
+        {{/each}}
+    </table>
+</template>
+
+
+<template name="newTask">
+    <div class="createTask">
+        <!--<textarea name="textarea"></textarea>-->
+        <input type="text" name="taskPerson" placeholder="Person">
+        <input type="hidden" name="story_id" value="">
+        <br>
+        <button class="createTaskButton">New Task</button>
+
+    </div>
+    <div class="tooltip-pointer"></div>
+</template>
+
+<template name="myDialog">
+    '<div class="form-group"><label class="control-label">Task Description:</label>' +
+    '<input name="createTaskDesc" class=" form-control" placeholder="Description..."></div>' +
+    '<div class="form-group"><label class="control-label">Assignee:</label>' +
+    '<input name="createTaskAssignee" class="form-control" placeholder="..."></div>' +
+    ''
+</template>
